@@ -1,10 +1,10 @@
 /**--- JavaScript Basics ---**/
 
-/*----------
+/* console */
 console.log('Hello World!!');
-----------*/
 
-/*----------
+
+/* var */
 var firstName = 'Ravi';
 console.log(firstName);
 
@@ -20,9 +20,9 @@ job = 'student';
 console.log(job);
 
 console.log(job_profile);
-----------*/
 
-/*----------
+
+/* alert */
 var firstName, age, isMarried, lastName;
 firstName = 'Ravi';
 age = 26;
@@ -34,25 +34,25 @@ alert(firstName + ' - ' + age + ' | Married : ' + isMarried);
 
 lastName = prompt('What is his last name ?');
 console.log(firstName + ' ' + lastName);
-----------*/
 
-/*----------
+
+/* typeof */
 var now, ageRavi, ageRahul, yearRavi, yearRahul;
 now = 2019;
 ageRavi = 26;
 ageRahul = 22;
 console.log(yearRavi = now - ageRavi);
 console.log(yearRahul = now - ageRahul);
-console.log(now+1);
-console.log(now*2);
-console.log(now/10);
+console.log(now + 1);
+console.log(now * 2);
+console.log(now / 10);
 
-console.log(ageRavi<ageRahul);
+console.log(ageRavi < ageRahul);
 
-console.log(typeof(ageRavi>ageRahul));
-----------*/
+console.log(typeof (ageRavi > ageRahul));
 
-/*----------
+
+/* operator */
 var now, yearRavi, fullAge, isFullAge, ageRavi, ageRahul, avgAge;
 now = 2019;
 yearRavi = 1993;
@@ -76,25 +76,25 @@ x += 10;
 console.log(x);
 x++
 console.log(x);
-----------*/
 
-/*---------- Coding Challenge 1 ----------*
+
+/*--- Coding Challenge 1 ---*/
 var massMark, massJohn, heightMark, heightJohn, indexMark, indexJohn, isMarkFit;
 massMark = prompt('Mass of Mark (kg) :');
 heightMark = prompt('Height of Mark (m) :');
 massJohn = prompt('Mass of John (kg) :');
 heightJohn = prompt('Height of John (m) :');
-indexMark = massMark/(heightMark*heightMark);
-indexJohn = massJohn/(heightJohn*heightJohn);
+indexMark = massMark / (heightMark * heightMark);
+indexJohn = massJohn / (heightJohn * heightJohn);
 isMarkFit = indexMark > indexJohn;
 console.log(indexMark, indexJohn);
 console.log("Is Mark's BMI higher than John's ? " + isMarkFit);
-----------*/
 
-/*----------
+
+/* if-block */
 var name = 'Ravi Shankar';
 var status = 'single';
-if (status === 'married'){
+if (status === 'married') {
   console.log(name + ' is ' + status);
 } else {
   console.log(name + ' is currently ' + status);
@@ -106,9 +106,9 @@ if (isMarried) {
 } else {
   console.log(name + ' is hopefully getting married in the next few years.');
 }
-----------*/
 
-/*----------
+
+/* if-else nested */
 var name = 'Ravi';
 var age = 26;
 if (age < 13) {
@@ -120,9 +120,8 @@ if (age < 13) {
 } else {
   console.log(name + ' is a man.');
 }
-----------*/
 
-/*----------
+/* switch-case */
 var name = 'Ravi';
 var age = 26;
 var drink = age >= 18 ? 'beverages' : 'milk';
@@ -130,35 +129,35 @@ console.log(name + ' drinks ' + drink);
 
 var job = 'developer';
 switch (job) {
-  case 'teacher' :
+  case 'teacher':
     console.log(name + ' is a teacher.');
     break;
-  case 'designer' :
+  case 'designer':
     console.log(name + ' is a designer.');
     break;
-  case 'developer' :
+  case 'developer':
     console.log(name + ' is a developer.');
     break;
-  default :
+  default:
     console.log(name + ' does something else.');
 }
 
 switch (true) {
-  case age < 13 :
+  case age < 13:
     console.log(name + ' is a boy.');
     break;
-  case age >= 13 && age < 20 :
+  case age >= 13 && age < 20:
     console.log(name + ' is a teenager.');
     break;
-  case age >= 20 && age < 30 :
+  case age >= 20 && age < 30:
     console.log(name + ' is a young man.');
     break;
-  default :
+  default:
     console.log(name + ' is a man.');
 }
-----------*/
 
-/*----------
+
+/* strict-equal */
 var height = '';
 if (height || height === 0) {
   console.log('height is defined.');
@@ -167,14 +166,14 @@ if (height || height === 0) {
 }
 console.log(23 == '23'); // type-coercion
 console.log(23 === '23'); // strict-matching
-----------*/
 
-/*---------- Coding Challenge 2 ----------*
+
+/*--- Coding Challenge 2 ---*/
 var teamJohn, teamMike, teamMary, avgJohn, avgMike, avgMary, winner;
 teamJohn = 89 + 120 + 103;
 teamMike = 116 + 94 + 123;
-console.log(avgJohn = teamJohn/3);
-console.log(avgMike = teamMike/3);
+console.log(avgJohn = teamJohn / 3);
+console.log(avgMike = teamMike / 3);
 if (avgJohn > avgMike) {
   console.log('Winner : Team John' + ' - ' + avgJohn);
 } else if (avgJohn < avgMike) {
@@ -184,23 +183,22 @@ if (avgJohn > avgMike) {
 }
 
 teamMary = 97 + 134 + 105;
-console.log(avgMary = teamMary/3);
+console.log(avgMary = teamMary / 3);
 switch (true) {
-  case avgJohn > avgMike && avgJohn > avgMary :
+  case avgJohn > avgMike && avgJohn > avgMary:
     console.log('Winner : Team John' + ' - ' + avgJohn);
     break;
-  case avgMike > avgJohn && avgMike > avgMary :
+  case avgMike > avgJohn && avgMike > avgMary:
     console.log('Winner : Team Mike' + ' - ' + avgMike);
     break;
-  case avgMary > avgJohn && avgMary > avgMike :
+  case avgMary > avgJohn && avgMary > avgMike:
     console.log('Winner : Team Mary' + ' - ' + avgMary);
     break;
-  default :
+  default:
     console.log('It\'s a Draw!');
 }
-----------*/
 
-/*----------
+/* function */
 function calcAge(birthYear) {
   return 2019 - birthYear;
 }
@@ -221,13 +219,15 @@ function calcRetirement(name, year) {
 calcRetirement('Ravi', 1993);
 calcRetirement('Rahul', 1996);
 calcRetirement('Ramesh', 1948);
-----------*/
 
-/*----------
-// function profession(name, job) {} // fx-declaration.
+
+/* declaration/expression */
+
+// fx-declaration
+function profession(name, job) { }
 
 // fx-expression
-var profession = function(name, job) {
+var profession = function (name, job) {
   switch (job) {
     case 'teacher':
       return name + ' is a teacher.'
@@ -235,19 +235,19 @@ var profession = function(name, job) {
       return name + ' is a developer.'
     case 'publisher':
       return name + ' is a publisher.'
-    default :
+    default:
       return name + ' does something else.'
   }
 }
-console.log(profession('Ravi','developer'));
-console.log(profession('Rahul','publisher'));
-console.log(profession('Ramesh','driver'));
+console.log(profession('Ravi', 'developer'));
+console.log(profession('Rahul', 'publisher'));
+console.log(profession('Ramesh', 'driver'));
 
 profession('Rishab', 'engineer'); // fx-expression : expects a result
-if (true) {console.log(18)} // fx-statement : doesn't expect a result
-----------*/
+if (true) { console.log(18) } // fx-statement : doesn't expect a result
 
-/*----------
+
+/* mutation */
 var names = ['Ravi', 'Rahul', 'Ramesh'];
 var years = new Array(1993, 1996, 1948);
 console.log(names[2]);
@@ -260,36 +260,36 @@ names[5] = 'Ankit'; // mutate non-existent index
 console.log(names);
 names[names.length] = 'Suresh'; // mutate as last index
 console.log(names);
-----------*/
 
-/*----------
+
+/* array-methods */
 var ravi = ['Ravi', 'Shankar', 1993, 'developer', false]; // using array.methods();
 console.log(ravi);
 ravi.push('black');
-  console.log(ravi);
+console.log(ravi);
 ravi.unshift('Mr.');
-  console.log(ravi);
+console.log(ravi);
 ravi.pop();
-  console.log(ravi);
+console.log(ravi);
 ravi.shift();
-  console.log(ravi);
+console.log(ravi);
 console.log(ravi.indexOf('developer'));
 
 var isDesigner = ravi.indexOf('designer') === -1 ? 'Ravi is NOT a designer.' : 'Ravi IS a designer.'
 console.log(isDesigner);
-----------*/
 
-/*---------- Coding Challenge 3 ----------*
+
+/*--- Coding Challenge 3 ---*/
 var bill_A = 124, bill_B = 48, bill_C = 268;
 var calcTip = function (bill) {
   switch (true) {
-    case bill < 50 :
+    case bill < 50:
       return 0.2 * bill;
-    case bill >= 50 && bill < 200 :
+    case bill >= 50 && bill < 200:
       return 0.15 * bill;
-    case bill >= 200 :
+    case bill >= 200:
       return 0.1 * bill;
-    default :
+    default:
       return 0;
   }
 }
@@ -299,20 +299,20 @@ tip.push(calcTip(bill_B));
 tip.push(calcTip(bill_C));
 console.log(tip);
 var paid = [];
-paid.push(bill_A+(calcTip(bill_A)));
-paid.push(bill_B+(calcTip(bill_B)));
-paid.push(bill_C+(calcTip(bill_C)));
+paid.push(bill_A + (calcTip(bill_A)));
+paid.push(bill_B + (calcTip(bill_B)));
+paid.push(bill_C + (calcTip(bill_C)));
 console.log(paid);
-----------*/
 
-/*----------
+
+/* object */
 var ravi = { // object literal
-  firstName : 'Ravi',
-  lastName : 'Shankar',
-  birthYear : 1993,
-  job : 'Developer',
-  isMarried : false,
-  family : ['Dad', 'Mom', 'Oreo']
+  firstName: 'Ravi',
+  lastName: 'Shankar',
+  birthYear: 1993,
+  job: 'Developer',
+  isMarried: false,
+  family: ['Dad', 'Mom', 'Oreo']
 };
 console.log(ravi);
 console.log(ravi.firstName);
@@ -325,55 +325,55 @@ jane.firstName = 'Jane';
 jane['lastName'] = 'Smith';
 jane.birthYear = 1994
 console.log(jane);
-----------*/
 
-/*----------
+
+/* 'this' keyword */
 var ravi = {
-  firstName : 'Ravi',
-  lastName : 'Shankar',
-  birthYear : 1993,
-  job : 'Developer',
-  isMarried : false,
-  family : ['Dad', 'Mom', 'Oreo'],
-  calcAge : function (birthYear) { // fx - expression w/o. using the object properties
+  firstName: 'Ravi',
+  lastName: 'Shankar',
+  birthYear: 1993,
+  job: 'Developer',
+  isMarried: false,
+  family: ['Dad', 'Mom', 'Oreo'],
+  calcAge: function (birthYear) { // fx - expression w/o. using the object properties
     return 2019 - birthYear;
   }
 };
 console.log(ravi.calcAge(1993));
 
 var jane = {
-  birthYear : 1994,
-  calcAge : function () { // fx - expression using the object properties - 'this' keyword
+  birthYear: 1994,
+  calcAge: function () { // fx - expression using the object properties - 'this' keyword
     return 2019 - this.birthYear;
   }
 };
 console.log(jane.calcAge());
 
 var john = {
-  birthYear : 1996,
-  calcAge : function() { // fx - expression using 'this' keyword and adding as a property
+  birthYear: 1996,
+  calcAge: function () { // fx - expression using 'this' keyword and adding as a property
     this.age = 2019 - this.birthYear;
   }
 };
 john.calcAge(); // fx - statement
 console.log(john.age);
-----------*/
 
-/*---------- Coding Challenge 4 ----------*
+
+/*--- Coding Challenge 4 ---*/
 var mark = {
-  fullName : 'Mark Wood',
-  mass : 75,
-  height : 1.65,
-  calcBMI : function () {
+  fullName: 'Mark Wood',
+  mass: 75,
+  height: 1.65,
+  calcBMI: function () {
     this.bmass = this.mass / (this.height * this.height);
     return this.bmass;
   }
 };
 var john = {
-  fullName : 'John Smith',
-  mass : 80,
-  height : 1.63,
-  calcBMI : function () {
+  fullName: 'John Smith',
+  mass: 80,
+  height: 1.63,
+  calcBMI: function () {
     this.bmass = this.mass / (this.height * this.height);
     return this.bmass;
   }
@@ -386,9 +386,9 @@ if (mark.bmass > john.bmass) {
 } else {
   console.log('Both have equal BMI\'s');
 }
-----------*/
 
-/*----------
+
+/* for loop */
 for (var i = 0; i < 10; i++) { // for - loop
   console.log(i);
 }
@@ -415,14 +415,14 @@ for (var i = 0; i < ravi.length; i++) {
 }
 
 for (var i = ravi.length - 1; i >= 0; i--) console.log(ravi[i]); // reverse iteration
-----------*/
 
-/*---------- Coding Challenge 5 ----------*
+
+/*--- Coding Challenge 5 ---*/
 var john = {
-  bill : [124, 48, 268, 180, 42],
-  tips : [],
-  paid : [],
-  calcTip : function() {
+  bill: [124, 48, 268, 180, 42],
+  tips: [],
+  paid: [],
+  calcTip: function () {
     var percentage;
     for (var i = 0; i < this.bill.length; i++) {
       if (this.bill[i] < 50) percentage = 0.2;
@@ -437,10 +437,10 @@ var john = {
 john.calcTip();
 
 var mark = {
-  bill : [77, 375, 110, 45],
-  tips : [],
-  paid : [],
-  calcTip : function() {
+  bill: [77, 375, 110, 45],
+  tips: [],
+  paid: [],
+  calcTip: function () {
     var percentage;
     for (var i = 0; i < this.bill.length; i++) {
       if (this.bill[i] < 100) percentage = 0.2;
@@ -465,4 +465,3 @@ var avgTipMark = calcAvgTip(mark.tips);
 if (avgTipJohn > avgTipMark) console.log('John\'s family paid the highest avg. tip : ' + avgTipJohn);
 else if (avgTipMark > avgTipJohn) console.log('Mark\'s family paid the highest avg. tip : ' + avgTipMark);
 else console.log('Both the families paid equal avg. tip.');
-----------*/
