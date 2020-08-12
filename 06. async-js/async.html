@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asynchronous JavaScript</title>
+  </head>
+
+  <body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+      /* --- Async JS --- */
+
+      const second = () => {
+        setTimeout(() => { // setTimeout(callback, timer);
+          console.log('Async. JS');
+        }, 2000);
+      };
+      const first = () => {
+        console.log('First');
+        second();
+        console.log('Done !');
+      };
+      first();
+
+
+
+      /* Async JS with Callbacks */
+      function getPlayer() {
+        // fx-callback 1
+        setTimeout(() => {
+          const playerId = [44, 10, 18, 12, 7, 56];
+          console.log(playerId);
+
+          // fx-callback 2 depends on 1
+          setTimeout(id => {
+            const player = { name: 'Yuvraj Singh', role: 'batting all-rounder' };
+            console.log(`Player #${id} : ${player.name} is a ${player.role} for India.`);
+
+            // fx-callback 3 depends on 2 and 1
+            setTimeout(name => { // this callback chain is known as callback-hell
+              const wCups = { ODI: 2011, T20: 2007 };
+              console.log(wCups);
+            }, 1500, player.name);
+          }, 1500, playerId[3]);
+        }, 1500);
+      }
+      getPlayer();
+
+
+      /* Promises*/
+
+      // Promises : Production
+      const getId = new Promise((resolve, reject) => { // create Promise obj.
+        setTimeout(() => {
+          resolve([44, 10, 18, 12, 7, 56]); // resolve
+        }, 1500);
+      });
+
+      const getPlayer = id => {
+        return new Promise((resolve, reject) => { // return promise
+          setTimeout(id => {
+            resolve({ name: 'Yuvraj Singh', role: 'batting all-rounder' });
+          }, 1500, id); // arg. inject
+        });
+      };
+
+      const getWorldCup = player => {
+        return new Promise((resolve, reject) => {
+          setTimeout(player => {
+            if (player == 'Yuvraj Singh') {
+              resolve({ ODI: 2011, T20: 2007 });
+            } else {
+              reject(`No World Cup data`); // reject
+            }
+          }, 1500, player);
+        });
+      };
+
+
+      // Promises : Consumption
+
+      getId.then(IDs => { // resolve -> action
+        console.log(IDs);
+        return getPlayer(IDs[3]);
+      }).then(player => {
+        console.log(player);
+        return getWorldCup(player.name);
+      }).then(wCups => {
+        console.log(wCups);
+      }).catch(error => { // reject -> action
+        console.error(`Error : ${error}`);
+      });
+
+
+      // async - await : ES6 -> ES8
+
+      async function getData() {
+        const IDs = await getId;
+        console.log(IDs);
+        const player = await getPlayer(IDs[3]);
+        console.log(player);
+        const wCups = await getWorldCup(player.name);
+        console.log(wCups);
+        return 'Yuvraj - The Hero';
+      }
+      getData().then(res => console.log(res));
+
+
+
+      /* AJAX w. Fetch and Promise */
+      // https://api.allorigins.win/raw?url={url}
+      function getPlayer() {
+        fetch('https://api.allorigins.win/raw?url=http://www.mocky.io/v2/5e95baa52f00007f6c0253e3')
+          .then(res => res.json())
+          .then(data => {
+            const name = data.name;
+            const runs = data.runs;
+            const team = data.team;
+            console.log(`${name} played for ${team} and scored ${runs} runs in ODIs. He was a true match-winner.`);
+          })
+          .catch(err => console.error(err));
+      }
+      getPlayer();
+
+
+      /* AJAX w. Fetch and async-await */
+      async function getPlayerAW() {
+        try {
+          const resp = await fetch('https://api.allorigins.win/raw?url=http://www.mocky.io/v2/5e95baa52f00007f6c0253e3');
+          const data = await resp.json();
+          return data
+          console.log(data.name);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      getPlayerAW().then(data => {
+        console.log(`${data.name} has ${data.cent} centuries and has hit ${data.sixs} sixes in ODIs.`);
+      }).catch(err => console.log(err));
+    </script>
+  </body>
+
+</html>
